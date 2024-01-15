@@ -5,7 +5,7 @@ Those script were made for Sisence as task.
 Requirements:
 1. Being able to run ".sh" scripts
 2. Configured AWS CLI (if not the script will be mad at you ;).
-3. Use at you own risk.
+3. Use at your own risk.
 
 How to use:
 1. Run sudo chmod +x script.sh (example: sudo chmod +x Sisense-Instances_status.sh), so the script is executable. 
