@@ -1,6 +1,6 @@
 # Sisense
 
-Those script were made for Sisence as task.
+Those scripts were made for Sisence as a task.
 
 Requirements:
 1. Being able to run ".sh" scripts
