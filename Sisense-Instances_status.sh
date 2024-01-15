@@ -1,9 +1,8 @@
 #!/bin/bash
 
 usage() {
-    echo "Usage: $0 [-t <tag>] [-r <region>] [-i <instance_id>]"
+    echo "Usage: $0 [-r <region>] [-i <instance_id>]"
     echo "Options:"
-    echo "  -t <tag>                  Instances status with specific tag"
     echo "  -r <region>               Instances status in specific region"
     echo "  -i <instance_id>          Check status in specific instance by ID"
     echo "  -h                        Display this help message"
@@ -11,13 +10,11 @@ usage() {
 }
 
 # Initializing variables
-tag=""
 region=""
 instance_id=""
 
-while getopts "t:r:i:h" opt; do
+while getopts "r:i:h" opt; do
     case $opt in
-        t) tag="$OPTARG" ;;
         r) region="$OPTARG" ;;
         i) instance_id="$OPTARG" ;;
         h) usage ;;
@@ -48,10 +45,6 @@ fi
 
 # Creating the AWS CLI command
 aws_command="aws ec2 describe-instances"
-
-if [ -n "$tag" ]; then
-    aws_command+=" --filters Name=tag:$tag,Values=*"
-fi
 
 if [ -n "$region" ]; then
     aws_command+=" --region $region"
